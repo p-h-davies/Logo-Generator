@@ -13,15 +13,18 @@ function generateSVG(filename, responses) {
     if (responses.shape == 'Triangle') {
         userShape = new Triangle(responses.colour, responses.textColour, responses.text);
         svgString = userShape.display()
+        console.log(responses.shape)
 
     }
     else if (responses.shape == 'Circle') {
         userShape = new Circle(responses.colour, responses.textColour, responses.text);
         svgString = userShape.display()
+        console.log(responses.shape)
 
     } else if (responses.shape == 'Rectangle') {
         userShape = new Rectangle()
         svgString = userShape.display(responses.colour, responses.textColour, responses.text)
+        console.log(responses.shape)
     }
 
     fs.writeFile(filename, svgString, (err) =>
