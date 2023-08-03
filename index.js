@@ -1,15 +1,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Triangle = require('./lib/shapes.js');
-const Circle = require('./lib/shapes.js');
-const Rectangle = require('./lib/shapes.js');
+const { Triangle, Circle, Square } = require('./lib/shapes.js');
+
 
 
 const filename = `logo.svg`;
 function generateSVG(filename, responses) {
 
     let svgString = "";
-    let userShape;
+    let userShape = "";
     if (responses.shape == 'Triangle') {
         userShape = new Triangle(responses.colour, responses.textColour, responses.text);
         svgString = userShape.display()
@@ -21,8 +20,8 @@ function generateSVG(filename, responses) {
         svgString = userShape.display()
         console.log(responses.shape)
 
-    } else if (responses.shape == 'Rectangle') {
-        userShape = new Rectangle()
+    } else if (responses.shape == 'Square') {
+        userShape = new Square(responses.colour, responses.textColour, responses.text)
         svgString = userShape.display(responses.colour, responses.textColour, responses.text)
         console.log(responses.shape)
     }
@@ -55,7 +54,7 @@ inquirer
             type: 'list',
             message: 'What shape would you like your logo to be?',
             name: 'shape',
-            choices: ['Triangle', 'Rectangle', 'Circle'],
+            choices: ['Triangle', 'Square', 'Circle'],
         },
     ])
     .then((responses) => {
