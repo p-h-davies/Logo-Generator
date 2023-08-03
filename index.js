@@ -1,25 +1,37 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Triangle = require('./shapes.js');
-const Circle = require('./shapes.js');
-const Rectangle = require('./shapes.js');
+const Triangle = require('./lib/shapes.js');
+const Circle = require('./lib/shapes.js');
+const Rectangle = require('./lib/shapes.js');
+const { userInfo } = require('os');
+
+const filename = `logo.svg`;
 
 
 
-function generateSVG(responses) {
+function generateSVG(filename, responses) {
 
-    let userShape = "";
+    let svgString = "";
+
 
     if (responses.shape === "Triangle") {
         userShape = new Triangle();
+        svgString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg> <polygon points="150, 18 244, 182 56, 182" fill="${this.text}"/>`
+
     }
     else if (responses.shape === "Circle") {
         userShape = new Circle();
+        svgString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg> <rect x="73" y="40" width="160" height="160" fill="${this.colour}"/>`
     } else {
         userShape = new Rectangle()
+        svgString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg> <polygon points="150, 18 244, 182 56, 182" fill="${this.colour}"/>`
     }
-}
 
+    fs.writeFile(filename, svgString, (err) =>
+        err ? console.error(err) : console.log('Generated logo.svg')
+    )
+    return userShape
+}
 
 
 inquirer
@@ -47,10 +59,7 @@ inquirer
         },
     ])
     .then((responses) => {
-        const svg = functions.generateSVG(responses);
-        const filename = `logo.svg`;
-        fs.writeFile(filename, svg, (err) =>
-            err ? console.error(err) : console.log('Generated logo.svg')
-        );
+        generateSVG(filename, responses)
+        console.log(userShape)
     });
 
