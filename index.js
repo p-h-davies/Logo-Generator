@@ -3,34 +3,31 @@ const fs = require('fs');
 const Triangle = require('./lib/shapes.js');
 const Circle = require('./lib/shapes.js');
 const Rectangle = require('./lib/shapes.js');
-const { userInfo } = require('os');
+
 
 const filename = `logo.svg`;
-
-
-
 function generateSVG(filename, responses) {
 
     let svgString = "";
-
-
-    if (responses.shape === "Triangle") {
-        userShape = new Triangle();
-        svgString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg> <polygon points="150, 18 244, 182 56, 182" fill="${this.text}"/>`
+    let userShape;
+    if (responses.shape == 'Triangle') {
+        userShape = new Triangle(responses.colour, responses.textColour, responses.text);
+        svgString = userShape.display()
 
     }
-    else if (responses.shape === "Circle") {
-        userShape = new Circle();
-        svgString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg> <rect x="73" y="40" width="160" height="160" fill="${this.colour}"/>`
-    } else {
+    else if (responses.shape == 'Circle') {
+        userShape = new Circle(responses.colour, responses.textColour, responses.text);
+        svgString = userShape.display()
+
+    } else if (responses.shape == 'Rectangle') {
         userShape = new Rectangle()
-        svgString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg> <polygon points="150, 18 244, 182 56, 182" fill="${this.colour}"/>`
+        svgString = userShape.display(responses.colour, responses.textColour, responses.text)
     }
 
     fs.writeFile(filename, svgString, (err) =>
         err ? console.error(err) : console.log('Generated logo.svg')
     )
-    return userShape
+    return
 }
 
 
@@ -48,18 +45,17 @@ inquirer
         },
         {
             type: 'input',
-            name: 'text-colour',
+            name: 'textColour',
             message: 'What colour would you like your text to be? [Enter either colour name or hexidecimal code]',
         },
         {
             type: 'list',
             message: 'What shape would you like your logo to be?',
             name: 'shape',
-            choices: ['Triangle', 'Square', 'Circle'],
+            choices: ['Triangle', 'Rectangle', 'Circle'],
         },
     ])
     .then((responses) => {
         generateSVG(filename, responses)
-        console.log(userShape)
     });
 
