@@ -58,6 +58,9 @@ inquirer
         },
     ])
     .then((responses) => {
-        generateSVG(filename, responses)
+        if (responses.text.length > 3) {
+            console.log('Sorry, character limit is three. Please try again.')
+        } else {
+            generateSVG(filename, responses)
+        }
     });
-
