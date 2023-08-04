@@ -1,9 +1,10 @@
+//Import Classes & Tools
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { Triangle, Circle, Square } = require('./lib/shapes.js');
 
 
-
+//Function to generate .svg file by entering user data as a parameter of an imported class, and enabling user's response to shape to equal a particular class
 const filename = `logo.svg`;
 function generateSVG(filename, responses) {
 
@@ -32,7 +33,7 @@ function generateSVG(filename, responses) {
     return
 }
 
-
+//Ask questions
 inquirer
     .prompt([
         {
@@ -57,10 +58,12 @@ inquirer
             choices: ['Triangle', 'Square', 'Circle'],
         },
     ])
+    //Check text length is correct
     .then((responses) => {
         if (responses.text.length > 3) {
             console.log('Sorry, character limit is three. Please try again.')
         } else {
+            //Generate SVG with user responses inputted
             generateSVG(filename, responses)
         }
     });

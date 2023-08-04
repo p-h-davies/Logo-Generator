@@ -7,8 +7,6 @@
 - [License](#licenses)
 - [Contribution](#contribution)
 - [Tests](#test)
-- [Username](#username)
-- [Profile](#profile)
 - [Questions](#questions)
 
 ## Description:
