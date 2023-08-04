@@ -4,7 +4,7 @@
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#licenses)
+- [License](#license)
 - [Contribution](#contribution)
 - [Tests](#test)
 - [Questions](#questions)
@@ -12,7 +12,11 @@
 ## Description:
 This project was designed to make creating basic logos easier, and more accessible to those without design programs and applications. Once this application is launched, a set of questions will appear in your terminal - asking for your desired logo shape, background colour, text colour and logo text. Once all questions have been answered, ensuring that the logo text does not go over the three character limit, an .svg file will appear in the folder, with the svg for your logo prepared. To view this logo in its vector form, you can open the file in your browser, or preview it as an SVG using a free add-on (discussed in installation). When you're happy with your logo, you can simply move the file into your desired file and close this program. 
 
-To view how this application runs, watch the video below (this example has been performed using Git Bash, however, you are free to use another terminal application).
+**To view how this application runs, watch the video below (this example has been performed using Git Bash, however, you are free to use another terminal application).**
+
+
+
+https://github.com/p-h-davies/Logo-Generator/assets/132735727/fe85b7c5-e341-4fa0-8882-80e548876cd2
 
 
 
@@ -22,13 +26,13 @@ To use this application, you will need to install Node.js and ensure you have a 
 Before running the code, it is important to run 'npm i' in your terminal, to ensure all packages are transferred to your machine.
 
 ## Usage:
-Open the folder 'Logo-Generator' in your terminal, then type 'npm i' to ensure all packages are working on your machine.
+1. Open the folder 'Logo-Generator' in your terminal, then type 'npm i' to ensure all packages are working on your machine.
 
-Next, type 'index node.js' to trigger the questions list. Answer all questions according to instruction.  
+2. Next, type 'index node.js' to trigger the questions list. Answer all questions according to instruction.  
 
-Once all questions have been answered, you will see a 'Success!' message appear, and a logo.svg file will appear in the folder.
+3. Once all questions have been answered, you will see a 'Success!' message appear, and a logo.svg file will appear in the folder.
 
-Next, you can view your logo by either opening it in your browser or through an SVG previewer. Once you're happy with the design, move the logo.svg folder into your own chosen folder and close the program. 
+4. Next, you can view your logo by either opening it in your browser or through an SVG previewer. Once you're happy with the design, move the logo.svg folder into your own chosen folder and close the program. 
 
 
 ## License:
@@ -40,19 +44,25 @@ N/A
 
 ## Test:
 This project has been tested against the following:
-Ensuring the triangle class returns the correct text
-Ensuring the triangle class returns the correct background colour
-Ensuring the triangle class returns the correct font colour
+- Ensuring the triangle class returns the correct text
+- Ensuring the triangle class returns the correct background colour
+- Ensuring the triangle class returns the correct font colour
 
-Ensuring the circle class returns the correct text
-Ensuring the circle class returns the correct background colour
-Ensuring the circle class returns the correct font colour
+- Ensuring the circle class returns the correct text
+- Ensuring the circle class returns the correct background colour
+- Ensuring the circle class returns the correct font colour
 
-Ensuring the square class returns the correct text
-Ensuring the square class returns the correct background colour
-Ensuring the square class returns the correct font colour
+- Ensuring the square class returns the correct text
+- Ensuring the square class returns the correct background colour
+- Ensuring the square class returns the correct font colour
 
 You can view the code for this testing in the 'shapes.test.js' file, located within the 'lib' folder. 
+
+
+**Attached below is a video of the code passing the above tests:**
+
+https://github.com/p-h-davies/Logo-Generator/assets/132735727/6081d6b4-ef24-4c98-83e3-6a1f727ca2c2
+
 
 ## Questions
 My GitHub username is p-h-davies, and you can view my profile here: https://github.com/p-h-davies/.
